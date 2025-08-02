@@ -1,14 +1,13 @@
 package org.example.homeworkcreateendpoint.dto;
 
-import lombok.Builder;
+import java.math.BigDecimal;
 
-@Builder
 public record AccountResponse(
         String actNo,
+        String actName,
         String actCurrency,
-        String balance,
-        String accountTypeName,
-        String customerName,
-        Boolean isDeleted
+        BigDecimal balance,
+        String accountType,
+        Boolean isHide
 ) {
 }

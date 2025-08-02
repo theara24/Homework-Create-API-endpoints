@@ -22,19 +22,28 @@ public class Account {
     private String actNo;
 
     @Column(nullable = false, length = 50)
+    private String actName;
+
+    @Column(nullable = false, length = 50)
     private String actCurrency;
 
     @Column(nullable = false)
     private BigDecimal balance;
 
     @Column(nullable = false)
+    private BigDecimal overLimit;
+
+    @Column(nullable = false)
+    private Boolean isHide;
+
+    @Column(nullable = false)
     private Boolean isDeleted;
 
     @ManyToOne
-    @JoinColumn(name = "account_type_id")
-    private AccountType accountType;
+    @JoinColumn(nullable = false, name = "cust_id", referencedColumnName = "id")
+    private Customer customer; // cust_id
 
     @ManyToOne
-    @JoinColumn(name = "cust_id")
-    private Customer customer;
+    private AccountType accountType;
+
 }
